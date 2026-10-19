@@ -24,6 +24,10 @@ struct HingeView: View {
         .font(.body.monospaced())
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
+    // for effect purposes, like Z.B. icon leans as the phone folds, hinge - the three type of reading(angle)
+    .onHingeChange { _, newContext in
+      hinge = newContext.hinge
+    }
   }
   
   private var tilt: Angle {
