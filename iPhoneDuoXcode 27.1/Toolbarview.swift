@@ -27,10 +27,10 @@ struct ToolbarView: View {
           Button("Settings", systemImage: "gear") {}
         }
         ToolbarItem(placement: .topBarTrailing) {
-          HStack {
-            sortMenu
+          sortMenu
+        }
+        ToolbarItem(placement: .topBarTrailing) {
             addButton
-          }
         }
       }
     }
