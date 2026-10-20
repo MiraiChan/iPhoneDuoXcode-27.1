@@ -46,7 +46,15 @@ struct ArrangeView: View {
   }
   
   private var arrangement: some View {
-    List(1...12, id: \.self) { Text("Photo \($0)") }
+    if #available(anyAppleOS 27.1, *) {
+      ArrangementView {
+        List(1...12, id: \.self) { Text("Photo \($0)") }
+      } secondary: {
+        EditorPane()
+      }
+    } else {
+      // HStack { list; editor}
+    }
   }
 }
 

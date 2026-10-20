@@ -10,6 +10,7 @@
 import SwiftUI
 
 struct HingeView: View {
+  @available(anyAppleOS 27.1, *)
   @State private var hinge: DeviceHinge?
   
   var body: some View {
@@ -25,9 +26,12 @@ struct HingeView: View {
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     // for effect purposes, like Z.B. icon leans as the phone folds, hinge - the three type of reading(angle)
+    //Fence off Mac Catalyst
+    #if !targetEnvironment(macCatalyst)
     .onHingeChange { _, newContext in
       hinge = newContext.hinge
     }
+    #endif
   }
   
   private var tilt: Angle {

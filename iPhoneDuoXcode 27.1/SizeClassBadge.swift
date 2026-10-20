@@ -10,7 +10,9 @@
 import SwiftUI
 
 struct SizeClassBadge: View {
+  //Layout from size classes don't write  if UIDevice.current.model == ...
   @Environment(\.horizontalSizeClass) private var horizontal
+  // if horizontal == .regular { twoPanes } else { onePane }
   @Environment(\.verticalSizeClass) private var vertical
   
   var body: some View {
